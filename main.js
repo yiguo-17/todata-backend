@@ -2,7 +2,6 @@
  * HELPER FUNCTIONS *
  ********************/
 const getTodoName = function() {}
-const getCompleteness = function() {}
 const getPriority = function() {}
 const isComplete = function() {}
 const isHighPriority = function() {}
@@ -21,7 +20,6 @@ const priority1Only = function() {}
 
 module.exports = {
   getTodoName,
-  getCompleteness,
   getPriority,
   isComplete,
   isHighPriority,
