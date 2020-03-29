@@ -38,10 +38,5 @@ const todos = [
 
 ]
 
-let currentTodos = [...todos];
 
-let showingPriorities = false;
-
-if (!window) {
-  module.exports = todos;
-}
+module.exports = todos;
