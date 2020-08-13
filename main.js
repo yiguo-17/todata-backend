@@ -1,21 +1,79 @@
 /********************
  * HELPER FUNCTIONS *
  ********************/
-const getTodoName = function() {}
-const getPriority = function() {}
-const isComplete = function() {}
-const isHighPriority = function() {}
+
+
+
+
+
+
+
+
+
 
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
-const names = function() {}
-const priorities = function() {}
-const namesAndPriorities = function() {}
-const justNotComplete = function() {}
-const justComplete = function() {}
-const priority2Only = function() {}
-const priority1Only = function() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Our code below
+
+if (typeof getTodoName === 'undefined') {
+  getTodoName = undefined;
+}
+
+if (typeof getPriority === 'undefined') {
+  getPriority = undefined;
+}
+
+if (typeof isComplete === 'undefined') {
+  isComplete = undefined;
+}
+
+if (typeof isHighPriority === 'undefined') {
+  isHighPriority = undefined;
+}
+
+if (typeof names === 'undefined') {
+  names = undefined;
+}
+
+if (typeof priorities === 'undefined') {
+  priorities = undefined;
+}
+
+if (typeof namesAndPriorities === 'undefined') {
+  namesAndPriorities = undefined;
+}
+
+if (typeof justNotComplete === 'undefined') {
+  justNotComplete = undefined;
+}
+
+if (typeof justComplete === 'undefined') {
+  justComplete = undefined;
+}
+
+if (typeof priority2Only === 'undefined') {
+  priority2Only = undefined;
+}
+
+if (typeof priority1Only === 'undefined') {
+  priority1Only = undefined;
+}
+
 
 
 module.exports = {
