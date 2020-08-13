@@ -12,12 +12,8 @@ const {
   priority1Only,
 } = require('./main.js')
 
-const todos = require('./todos.js')
 
-let originalTodos = [];
-
-beforeEach(() => {
-  originalTodos = [
+const originalTodos = [
   {
     text: 'Christmas shopping',
     id: 0,
@@ -54,23 +50,20 @@ beforeEach(() => {
     complete: true,
     priority: 1,
   },
-  
 ]
-})
-
 
 describe('getTodoName', () => {
   it(`returns the text property of a todo`, () => {
     const todo1 = {
     text: 'Christmas shopping',
-    
+
     complete: false,
     priority: 1,
   };
 
   const todo2 = {
     text: `make doctor's appointment`,
-    
+
     complete: false,
     priority: 2,
   };
@@ -84,14 +77,14 @@ describe('getPriority', () => {
   it(`returns the priority of a todo`, () => {
     const todo1 = {
     text: 'Christmas shopping',
-    
+
     complete: false,
     priority: 1,
   };
 
   const todo2 = {
     text: `make doctor's appointment`,
-    
+
     complete: true,
     priority: 2,
   };
@@ -105,14 +98,14 @@ describe('isComplete', () => {
   it(`returns whether the given todo is complete`, () => {
     const todo1 = {
     text: 'Christmas shopping',
-    
+
     complete: false,
     priority: 1,
   };
 
   const todo2 = {
     text: `make doctor's appointment`,
-    
+
     complete: true,
     priority: 2,
   };
@@ -126,14 +119,14 @@ describe('isHighPriority', () => {
   it(`returns whether the given todo is of high priority`, () => {
     const todo1 = {
     text: 'Christmas shopping',
-    
+
     complete: false,
     priority: 2,
   };
 
   const todo2 = {
     text: `make doctor's appointment`,
-    
+
     complete: true,
     priority: 1,
   };
@@ -145,6 +138,45 @@ describe('isHighPriority', () => {
 
 describe('names', () => {
   it(`returns an array of the given todos names`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     expect(names(todos)).toEqual([
       'Christmas shopping',
       `make doctor's appointment`,
@@ -156,6 +188,45 @@ describe('names', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     names(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -163,10 +234,88 @@ describe('names', () => {
 
 describe('priorities', () => {
   it(`returns an array of the given todos priorities`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     expect(priorities(todos)).toEqual([1, 2, 2, 1, 2, 1])
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     priorities(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -174,6 +323,45 @@ describe('priorities', () => {
 
 describe('namesAndPriorities', () => {
   it(`returns an array of the string containing the given todos name and priority`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     expect(namesAndPriorities(todos)).toEqual([
       'Christmas shopping - Low',
       `make doctor's appointment - High`,
@@ -185,6 +373,45 @@ describe('namesAndPriorities', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     namesAndPriorities(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -192,6 +419,45 @@ describe('namesAndPriorities', () => {
 
 describe('justNotComplete', () => {
   it(`returns an array of only those todos that are not complete`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     const notComplete = [
       {
         text: 'Christmas shopping',
@@ -217,6 +483,45 @@ describe('justNotComplete', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     justNotComplete(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -224,6 +529,45 @@ describe('justNotComplete', () => {
 
 describe('justComplete', () => {
   it(`returns an array of only those todos that are not complete`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     const complete = [
       {
         text: `make doctor's appointment`,
@@ -249,6 +593,45 @@ describe('justComplete', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     justComplete(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -256,6 +639,45 @@ describe('justComplete', () => {
 
 describe('priority2Only', () => {
   it(`returns an array of only those todos that are of high priority`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     const highPriority = [
       {
         text: `make doctor's appointment`,
@@ -281,6 +703,45 @@ describe('priority2Only', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     priority2Only(todos);
     expect(todos).toEqual(originalTodos);
   });
@@ -288,6 +749,45 @@ describe('priority2Only', () => {
 
 describe('priority1Only', () => {
   it(`returns an array of only those todos that are of low priority`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     const lowPriority = [
       {
         text: 'Christmas shopping',
@@ -313,6 +813,45 @@ describe('priority1Only', () => {
   })
 
   it(`doesn't modify the original array`, () => {
+    const todos = [
+      {
+        text: 'Christmas shopping',
+        id: 0,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: `make doctor's appointment`,
+        id: 1,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'binge watch The Office',
+        id: 2,
+        complete: false,
+        priority: 2,
+      },
+      {
+        text: 'research dinosaurs',
+        id: 3,
+        complete: false,
+        priority: 1,
+      },
+      {
+        text: 'fire Colin',
+        id: 4,
+        complete: true,
+        priority: 2,
+      },
+      {
+        text: 'start novel',
+        id: 5,
+        complete: true,
+        priority: 1,
+      },
+    ]
+
     priority1Only(todos);
     expect(todos).toEqual(originalTodos);
   });
